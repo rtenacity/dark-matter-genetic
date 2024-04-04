@@ -8,7 +8,7 @@ pythia.readString("9900022:new = gamma_dark DarkPhoton")
 pythia.readString("9900022:spinType = 1")
 pythia.readString("9900022:chargeType = 0")
 pythia.readString("9900022:colType = 0")
-pythia.readString("9900022:m0 = 0.1")
+pythia.readString("9900022:m0 = 0")
 pythia.readString("9900022:isResonance = false")
 pythia.readString("111:addChannel = 1 0.000001 101 22 9900022")
 pythia.init()
@@ -68,7 +68,7 @@ for data_point in dark_photon_events:
     print(data_point)
 
 df_events = pd.DataFrame(events)
-csv_file_path = "sim_with_razor.csv"
+csv_file_path = "sim_with_razor2.csv"
 
 try:
     with open(csv_file_path, "a") as f:
