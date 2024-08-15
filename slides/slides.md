@@ -93,7 +93,7 @@ $$\mathcal{L}=-\frac{1}{4}\tilde{F}_{\mu \nu}\tilde{F}^{\mu \nu} -\frac{1}{4}\ti
 
 ---
 
-# Interaction
+# Interactions
 
 <Item title="Interaction Between Photon and Charged Particle">
 
@@ -275,6 +275,57 @@ $$R^2 = \left(\frac{M_T}{MR}\right)^2$$
 </Item>
 </div>
 </div>
+
+---
+section: Results
+---
+
+# Data Snapshot
+
+
+<Item title = "Snapshot of Simulation Data">
+
+| Event Number | $HT$ | $MET$ | $MR$ | $R^2$ | Dark Photon Produced? |
+|--------------|-----|-----|-----|-----|----------|
+| 352806 | 94.775 | 0.000 | 14000.000 | 0.000000 | False |
+| 417824 | 48.964 | 0.000 | 14000.000 | 0.000000 | False |
+| 469847 | 196.721 | 0.000 | 14000.000 | 0.000000 | False |
+| 407746 | 118.227 | 1.069 | 13983.157 | 2.585e-06 | False |
+| 469848 | 105.605 | 0.000 | 14000.000 | 0.000000 | False |
+| 494526 | 31.646 | 0.000 | 14000.000 | 0.000000 | False |
+</Item>
+
+---
+
+# Pattern Finding
+After inspecting the data closely, a pattern forms between MET vs R2, which the model trained on.
+
+<Item title="Graph of MET vs R^2"> 
+  <div className="flex justify-center items-center">
+    <img src="./images/graph.excalidraw.png" width="450" height="auto" alt="AdaBoost Diagram" className="mx-auto" />
+  </div>
+</Item>
+
+
+---
+
+# Genetic Algorithm Output Data
+
+<Item title = "Genetic Algorithm Data">
+
+| Generation | Num. Evals | Avg. Fitness | Std. Dev Of Fitness | Min Fitness | Max Fitness |
+|-----|-----------|--------------|---------------------|-------------|-------------|
+| 1   | 33        | 0.999929     | 1.91844e-05         | 0.99988     | 0.99995     |
+| 3   | 27        | 0.999949     | 6.00333e-06         | 0.99992     | 0.99995     |
+| 5   | 28        | 0.99995      | 1.11022e-16         | 0.99995     | 0.99995     |
+| 7   | 34        | 0.999949     | 4.58258e-06         | 0.99992     | 0.99995     |
+| 9   | 28        | 0.999949     | 4.58258e-06         | 0.99992     | 0.99995     |
+| 10  | 40        | 0.99995      | 1.4e-06             | 0.99994     | 0.99995     |
+</Item>
+
+---
+
+
 
 
 
