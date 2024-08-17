@@ -20,36 +20,20 @@ roarni@ctemc.org
 section: Introduction
 ---
 
-# Introduction to Dark Matter
-
-<div className="grid grid-cols-2 grid-rows-2 gap-4">
-  <div className="p-4">
-    <ul className="list-disc list-inside">
-      <li>Fritz Zwicky's hypothesis, 90 years ago</li>
-      <li>Composition of universe: 27% dark matter, 85% of matter density</li>
-      <li>Standard Model <b> does not account for</b> Dark Matter</li>
-    </ul>
-  </div>
-  <div className="flex items-center justify-center p-4">
-    <img src="./images/fritz.png" width="150" height="auto" alt="Dark Matter Visualization" className="max-w-full h-auto"/>
-  </div>
-  <div className="flex items-center justify-center p-4">
-    <img src="" alt="Universe Composition Chart" className="max-w-full h-auto"/>
-  </div>
-  <div className="flex items-center justify-center p-4">
-    <img src="" alt="Standard Model Particles" className="max-w-full h-auto"/>
-  </div>
-</div>  
-
-
----
-
 # The Dark Photon
 
-- A force carrier for the dark sector, similar to the photon
-- The dark photon could carry some "dark force"
+- Dark matter makes up 27% of the energy density of the universe and 85% of the matter density.
+- The Standard Model particles do not account for dark matter
+- The dark photon is a force carrier for the dark sector, similar to the photon
 - New force can be introduced to the standard model by extending the gauge group with a new $U(1)$ gauge symmetry
 - The dark photon is massless if the gauge symmetry remains unbroken.
+
+
+<Item title="Extended Standard Model">
+  <div className="flex justify-center items-center">
+  <img src="./images/smdiagram.png" width="650" height="auto" alt="AdaBoost Diagram" className="mx-auto" />
+  </div>
+</Item>
 
 ---
 
@@ -75,9 +59,9 @@ Where:
 # Diagonalizing Kinetic Terms
 
 - Need to remove the mixing term so the kinetic terms only consist of parameters from one field.  
-- Product $F_{\mu \nu}F'^{\mu \nu}$ should vanish. 
+- Product $F_{\mu \nu}F'^{\mu \nu}$ should vanish to cancel $(\frac{\epsilon}{2}F_{\mu \nu}F'^{\mu \nu})$
 - We can do this with a field redefinition ($\tilde{A}_\mu$ and $\tilde{A'}_\mu$).  
-- Redefinition must ensure the mixing term is eliminated, the fields are normalized, and that $\tilde{A'}_\mu$ is orthagonal to $\tilde{A}_\mu$.
+- Redefinition must ensure the mixing term is eliminated and the fields are normalized.
 
 
 
@@ -114,13 +98,13 @@ $$\mathcal{L}_\text{int}=eA_\mu J^\mu _{\text{em}} + e\epsilon A'_\mu J^\mu _{\t
 
 # Consequences
 
-- Based on the equation, the dark photon can interact with the same particles as a photon (suppressed by a factor $\epsilon$)
+- Based on the equation, the dark photon can interact with the same particles as a photon (suppressed by a factor $\epsilon$), also called the dark photon portal
 
 - This coupling opens up new interaction channels, such as the potential production of dark photons in processes involving electromagnetic interactions. For instance, in meson decays, a neutral pion $\pi^0$ can decay into a photon and a dark photon:
 
 <Item title = "Production of Dark Photon">
 
-$$\pi^0 \rightarrow \gamma + \tilde{A}'_\mu$$
+$$\pi^0 \rightarrow \gamma + \gamma'$$
 </Item>
 
 - The rate of such a process is proportional to $\epsilon^2$. The massless dark photon would contribute to missing energy signatures in experiments.
@@ -150,7 +134,7 @@ $$\pi^0 \rightarrow \gamma + \tilde{A}'_\mu$$
 
 - The AdaBoost model has a set of hyperparameters (the number of estimators and the learning rate).
 - Tuning the hyperparameters manually can take a lot of time to approach an optimal solution.
-- A solution to this problem is by applying a genetic algorithm.
+- An optimal solution to this problem can be reached with a genetic algorithm.
 
 
 <Item title="Genetic Algorithm Flowchart">
@@ -182,7 +166,7 @@ section: Methods
 # Simulation
 
 - Simulated proton-proton collisions at 14 TeV using ```Pythia3.8```
-- The simulation was modified to add a decay channel $(\pi^0 \rightarrow \gamma + \tilde{A}'_\mu)$ with a branching ratio of $10^{-6}$
+- The simulation was modified to add a decay channel $(\pi^0 \rightarrow \gamma + \gamma')$ with a branching ratio of $10^{-6}$
 - The dark photon was defined as a stable massless particle that is color neutral, chargeless, and has a spin of 1
 - To gather data from the simulation, the program calculated:
   - the scalar sum of jet transverse momenta $(HT)$ by summing the total visible energy
@@ -263,10 +247,10 @@ $$R^2 = \left(\frac{M_T}{MR}\right)^2$$
 <Item title = "GA Execution">
 ```mermaid
   flowchart LR
-        J[Run genetic algorithm\nfor 10 generations] --> K[Evaluate fitness\nof each individual]
-        K --> L{Is optimal\nsolution found?}
+        J[Run genetic algorithm\nfor 10 generations] --> L{Is number of\n generations met?}
         L -->|Yes| M[End]
-        L -->|No| N[Select individuals\nfor next generation]
+        L -->|No| K[Evaluate fitness\nof each model]        
+        K --> N[Select individuals\nfor next generation]
         N --> O[Apply crossover]
         O --> P[Apply mutation]
         P -.-> J
@@ -281,7 +265,7 @@ section: Results
 ---
 
 # Data Snapshot
-
+- In the data set, only 25 out of 500,000 data points indicated that a dark photon was produced.
 
 <Item title = "Snapshot of Simulation Data">
 
@@ -292,20 +276,7 @@ section: Results
 | 469847 | 196.721 | 0.000 | 14000.000 | 0.000000 | False |
 | 407746 | 118.227 | 1.069 | 13983.157 | 2.585e-06 | False |
 | 469848 | 105.605 | 0.000 | 14000.000 | 0.000000 | False |
-| 494526 | 31.646 | 0.000 | 14000.000 | 0.000000 | False |
 </Item>
-
----
-
-# Pattern Finding
-After inspecting the data closely, a pattern forms between MET vs R2, which the model trained on.
-
-<Item title="Graph of MET vs R^2"> 
-  <div className="flex justify-center items-center">
-    <img src="./images/graph.excalidraw.png" width="450" height="auto" alt="AdaBoost Diagram" className="mx-auto" />
-  </div>
-</Item>
-
 
 ---
 
@@ -325,8 +296,73 @@ After inspecting the data closely, a pattern forms between MET vs R2, which the 
 
 ---
 
+# Final Model Results
 
+- After algorithm execution, the algorithm converged on a solution with a fitness of 0.99995. 
+- The hyperparameters of the model are:
 
+<Item title="Final Model Hyperparameters">
 
+| Number of Estimators | Learning Rate |
+|----------------------|---------------|
+| 319 | 0.1 |
 
+</Item>
 
+- Evaluating the model on the testing dataset resulted in an overall accuracy of 99.995%. 
+- However, the accuracy for instances where a dark photon was produced stood at 80%.
+
+---
+section: Conclusions
+---
+
+# Conclusions
+
+- The GA was successful in finding a model with a high accuracy, as shown by a model accuracy of 99.995% on the testing dataset.
+- However, the accuracy for instances where a dark photon was produced stood at 80%.
+- This dataset had an extreme imbalance, explaining the 80% accuracy on data points where a dark photon was produced in the testing set.
+- This can be countered with using more advanced classification techniques (RL, XGBoost, etc.)
+- However, there were no false positives, meaning that this algorithm could be used in beam experiments to find data to support the idea that dark photons are produced in these proton-proton experiments.
+
+--- 
+section: Acknowledgements
+---
+
+# Acknowledgements
+
+<div style="display: flex; align-items: center; justify-content: center; min-height: 50vh;">
+<div className="w-full p-4">
+<Item title = "Acknowledgements">
+I would like to thank:
+
+- Dr. Richard Oppenheim and Dr. Bruce Cortez (ex-AT&T Research) for their feedback and guidance for this project. 
+- The University of Chicago and the organizers of the TeVPA conference for giving me an opportunity to share my research.
+
+</Item>
+</div>
+</div>
+
+---
+section: Citations
+---
+
+# Citations
+
+<div style="font-size: 11px;">
+    <ul>
+        <li>Aguilar-Arevalo, A.A.: Search for Dark Matter in the Beam-Dump of a Proton Beam with MiniBooNE. Journal of Physics: Conference Series <strong>912</strong>, 012017 (2017). <a href="https://doi.org/10.1088/1742-6596/912/1/012017">https://doi.org/10.1088/1742-6596/912/1/012017</a></li>
+        <li>Batley, J., et al.: Search for the dark photon in decays. Physics Letters B <strong>746</strong>, 178–185 (2015). <a href="https://doi.org/10.1016/j.physletb.2015.04.068">https://doi.org/10.1016/j.physletb.2015.04.068</a></li>
+        <li>Battaglieri, M., et al.: Dark Matter Search in a Beam-Dump EXperiment (BDX) at Jefferson Lab an Update on PR12-16-001 the BDX Collaboration. (2018).</li>
+        <li>Berkane, A., Boussahel, M.: Dark Photon as an Extra U(1) Extension to the Standard Model with General Rotation in Kinetic Mixing. (2021).</li>
+        <li>Celentano, A., et al.: New Production Channels for Light Dark Matter in Hadronic Showers. Physical Review D <strong>102</strong>(7), 075026 (2020). <a href="https://doi.org/10.1103/physrevd.102.075026">https://doi.org/10.1103/physrevd.102.075026</a></li>
+        <li>Chatrchyan, S., et al.: Search for Supersymmetry with Razor Variables In PP Collisions Ats=7 TeV. Physical Review D <strong>90</strong>(11), 112001 (2014). <a href="https://doi.org/10.1103/physrevd.90.112001">https://doi.org/10.1103/physrevd.90.112001</a></li>
+        <li>Cushman, P., et al.: Snowmass CF1 Summary: WIMP Dark Matter Direct Detection. (2013). <a href="https://doi.org/10.48550/arxiv.1310.8327">https://doi.org/10.48550/arxiv.1310.8327</a></li>
+        <li>De Napoli, M.: Production and Detection of Light Dark Matter at Jefferson Lab: The BDX Experiment. Universe <strong>5</strong>(5), 120 (2019). <a href="https://doi.org/10.3390/universe5050120">https://doi.org/10.3390/universe5050120</a></li>
+        <li>Deb, K.: Genetic Algorithm in Search and Optimization: The Technique and Applications. (1998). <a href="http://repository.ias.ac.in/82743/">http://repository.ias.ac.in/82743/</a></li>
+        <li>Dutra, M., et al.: MeV Dark Matter Complementarity and the Dark Photon Portal. Journal of Cosmology and Astroparticle Physics <strong>2018</strong>(03), 037–037 (2018). <a href="https://doi.org/10.1088/1475-7516/2018/03/037">https://doi.org/10.1088/1475-7516/2018/03/037</a></li>
+        <li>Fabbrichesi, M., et al.: The Dark Photon. (2020).</li>
+        <li>Leung, Y., et al.: Degree of Population Diversity - a Perspective on Premature Convergence in Genetic Algorithms and Its Markov Chain Analysis. IEEE Transactions on Neural Networks <strong>8</strong>(5), 1165–1176 (1997). <a href="https://doi.org/10.1109/72.623217">https://doi.org/10.1109/72.623217</a></li>
+        <li>Novaes, S.: Standard Model: An Introduction. (2000). <a href="https://arxiv.org/pdf/hep-ph/0001283v1.pdf">https://arxiv.org/pdf/hep-ph/0001283v1.pdf</a></li>
+        <li>Tong, D.: Gauge Theory.</li>
+    </ul>
+</div>
