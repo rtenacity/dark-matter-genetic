@@ -23,10 +23,10 @@ section: Introduction
 # The Dark Photon
 
 - Dark matter makes up 27% of the energy density of the universe and 85% of the matter density.
-- The Standard Model particles do not account for dark matter
+- The Standard Model particles do not account for dark matter, a separate dark sector is proposed
 - The dark photon is a force carrier for the dark sector, similar to the photon
-- New force can be introduced to the standard model by extending the gauge group with a new $U(1)$ gauge symmetry
-- The dark photon is massless if the gauge symmetry remains unbroken.
+- New particle can be introduced to the standard model by extending the gauge group with a new $U(1)$ gauge symmetry
+- The dark photon interacts with the SM photon via kinetic mixing.
 
 
 <Item title="Extended Standard Model">
@@ -58,11 +58,11 @@ Where:
 
 # Diagonalizing Kinetic Terms
 
+<!-- the gauge fields correspond to physically independent particles -->
 - Need to remove the mixing term so the kinetic terms only consist of parameters from one field.  
 - Product $F_{\mu \nu}F'^{\mu \nu}$ should vanish to cancel $(\frac{\epsilon}{2}F_{\mu \nu}F'^{\mu \nu})$
 - We can do this with a field redefinition ($\tilde{A}_\mu$ and $\tilde{A'}_\mu$).  
 - Redefinition must ensure the mixing term is eliminated and the fields are normalized.
-
 
 
 <Item title = "Field Redefinition">
@@ -81,11 +81,11 @@ $$\mathcal{L}=-\frac{1}{4}\tilde{F}_{\mu \nu}\tilde{F}^{\mu \nu} -\frac{1}{4}\ti
 
 <Item title="Interaction Between Photon and Charged Particle">
 
-$$\mathcal{L}_\text{int}=eA_\mu J^\mu _{\text{em}}$$
+$$\mathcal{L}_\text{int}[\psi, \bar{\psi}, A_\mu] = e A_\mu \bar{\psi} \gamma^\mu \psi=eA_\mu J^\mu _{\text{em}}$$
 
 </Item>
 
-Where $e$ is the coupling constant (the charge of the particle) and $J^\mu _{\text{em}}$ is the electromagnetic current. Using our new definition of $\tilde{A}_\mu$, we can substitute:
+Where $e$ is the coupling constant (the charge of the particle) and $J^\mu _{\text{em}}$ is the fermion current ($\bar{\psi} \gamma^\mu \psi$). Using our new definition of $\tilde{A}_\mu$, we can substitute:
 
 <Item title ="Substitution">
 
