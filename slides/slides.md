@@ -22,10 +22,10 @@ section: Introduction
 
 # The Dark Photon
 
-- Dark matter makes up 27% of the energy density of the universe and 85% of the matter density.
-- The Standard Model particles do not account for dark matter, a separate dark sector is proposed
+- Dark matter makes up 27% of the energy density and 85% of the matter density of the universe.
+- The Standard Model does not account for dark matter, a separate dark sector is proposed
 - The dark photon is a force carrier for the dark sector, similar to the photon
-- New particle can be introduced to the standard model by extending the gauge group with a new $U(1)$ gauge symmetry
+- New particle can be introduced to the standard model by extending SM gauge group with new $U(1)$ gauge symmetry
 - The dark photon interacts with the SM photon via kinetic mixing.
 
 
@@ -98,18 +98,21 @@ $$\mathcal{L}_\text{int}=eA_\mu J^\mu _{\text{em}} + e\epsilon A'_\mu J^\mu _{\t
 
 # Consequences
 
-- Based on the equation, the dark photon can interact with the same particles as a photon (suppressed by a factor $\epsilon$), also called the dark photon portal
+- Based on the equation, the dark photon can interact with the same particles as a photon (suppressed by a factor $\epsilon$)
 
-- This coupling opens up new interaction channels, such as the potential production of dark photons in processes involving electromagnetic interactions. For instance, in meson decays, a neutral pion $\pi^0$ can decay into a photon and a dark photon:
+- This interaction is called the dark photon portal
+
+- This portal opens up new interaction/production channels. 
+- For instance, in meson decays, a neutral pion $\pi^0$ can decay into a photon and a dark photon:
 
 <Item title = "Production of Dark Photon">
 
 $$\pi^0 \rightarrow \gamma + \gamma'$$
 </Item>
 
-- The rate of such a process is proportional to $\epsilon^2$. The massless dark photon would contribute to missing energy signatures in experiments.
+- The rate of such a process is proportional to $\epsilon^2$ $(\approx 10^{-6})$. 
 
-- The upper limit of $\epsilon^2$ was calculated to be around $10^{-6}$. 
+- The dark photon would contribute to missing energy signatures in experiments.
 
 --- 
 
@@ -163,7 +166,7 @@ graph LR
 section: Methods
 ---
 
-# Simulation
+# Data Simulation
 
 - Simulated proton-proton collisions at 14 TeV using ```Pythia3.8```
 - The simulation was modified to add a decay channel $(\pi^0 \rightarrow \gamma + \gamma')$ with a branching ratio of $10^{-6}$
@@ -173,26 +176,33 @@ section: Methods
   - the missing transverse energy $(MET)$ by summing total energy produced by neutrinos and dark photons
   - the razor variable of mass scale $(MR)$
   - the razor variable $(R^2)$, which quantifies the balance of energy and momentum. 
+  - boolean flag that checked if a dark photon was produced.
 
 ---
 
 # Data Calculations
 
 
-- The razor variable of mass scale $(MR)$ was calculated via:
-
+<!-- $(MR)$ was calculated via: -->
+More in-depth calculations:
+<Item title="MR Formula">
 
 $$MR = \sqrt{(E_{1} + E_{2})^2 - (p^z_{1} + p^z_{2})^2}$$
-  - where $E_{1}$ and $E_{2}$ are the energies of the two leading jets and $p^z_{1}$ and $p^z_{2}$ are their momenta along the beam axis (z-axis)
+</Item>
+  <!-- - where $E_{1}$ and $E_{2}$ are the energies of the two leading jets and $p^z_{1}$ and $p^z_{2}$ are their momenta along the beam axis (z-axis) -->
 
-- The razor variable $(R^2)$, which quantifies the balance of energy and momentum was calculated via:
+<!-- The razor variable $(R^2)$, which quantifies the balance of energy and momentum was calculated via: -->
 
+<Item title="R2 Formula">
 
 $$R^2 = \left(\frac{M_T}{MR}\right)^2$$
-  - with $MT$ being defined as 
+<!-- with $MT$ being defined as  -->
   $$M_T = \sqrt{2 |\vec{p}_T^{vis}| |\vec{MET}| (1 - \cos(\Delta\phi))}$$
-  - and $\Delta\phi$ being the azimuthal angle between the visible system's momentum and the MET vector. 
 
+
+<!-- MT measure of the mass of a system in the transverse plane -->
+<!-- and $\Delta\phi$ being the angle between the visible system's momentum and the MET vector.  -->
+</Item>
 
 ---
 
@@ -225,8 +235,8 @@ $$R^2 = \left(\frac{M_T}{MR}\right)^2$$
 <Item title = "Genetic Algorithm Creation">
 ```mermaid
   flowchart LR
-        F[Define fitness function] --> G[Define mutation function]
-        G --> H[Define selection function]
+        F[Define fitness function] --> G["Define mutation function (DEAP)"]
+        G --> H["Define selection function (DEAP)"]
         H --> I[Set genetic algorithm parameters]
         I --> I1[Population size: 50]
         I --> I2[Crossover probability: 0.5]
@@ -309,8 +319,9 @@ section: Results
 
 </Item>
 
-- Evaluating the model on the testing dataset resulted in an overall accuracy of 99.995%. 
+- Evaluating the model on the testing dataset resulted in an accuracy of 99.995%. 
 - However, the accuracy for instances where a dark photon was produced stood at 80%.
+- Model had no false positives. 
 
 ---
 section: Conclusions
