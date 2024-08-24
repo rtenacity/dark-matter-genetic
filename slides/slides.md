@@ -236,7 +236,7 @@ $$\pi^0 \rightarrow \gamma + \gamma'$$
 
 </v-click>
 
-<Item title="Genetic Algorithm Flowchart">
+<Item v-after title="Genetic Algorithm Flowchart">
 ```mermaid 
 graph LR
     A[Initialize Population] --> B[Evaluate Fitness]
@@ -258,7 +258,7 @@ section: Methods
 
 <v-click>
 
-- Simulated proton-proton collisions at 14 TeV using ```Pythia3.8```
+- Simulated proton-proton collisions at 14 TeV using ```Pythia3.8``` on a 2021 MacBook Pro (M1 Pro, 32 GB RAM)
 
 </v-click>
 <v-click>
@@ -313,7 +313,7 @@ $$M_T = \sqrt{2 |\vec{p}_T^{vis}| |\vec{MET}| (1 - \cos(\Delta\phi))}$$
       C --> D[Split data\nTraining:Testing 4:1]
       D --> E[Create initial population]
       E --> E1[Set number of estimators: 50-400]
-      E --> E2[Set learning rate: 1-10]
+      E --> E2[Set learning rate: 0.1-1]
 ```
 
 </Item>
@@ -368,11 +368,10 @@ section: Results
 ---
 
 # Data Snapshot
-<v-click>
+
 
 - In the data set, only 25 out of 500,000 data points indicated that a dark photon was produced.
 
-</v-click>
 
 <Item title = "Snapshot of Simulation Data">
 
@@ -416,7 +415,7 @@ section: Results
 
 </v-click>
 
-<Item title="Final Model Hyperparameters">
+<Item v-after title="Final Model Hyperparameters">
 
 | Number of Estimators | Learning Rate |
 |----------------------|---------------|
@@ -492,6 +491,14 @@ I would like to thank:
 </div>
 
 ---
+section: Questions
+layout: center
+class: "text-center"
+---
+
+# Questions?
+
+---
 section: Citations
 ---
 
@@ -515,3 +522,4 @@ section: Citations
         <li>Tong, D.: Gauge Theory.</li>
     </ul>
 </div>
+
