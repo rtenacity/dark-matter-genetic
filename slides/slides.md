@@ -40,11 +40,12 @@ section: Introduction
 - New particle can be introduced to the standard model by extending SM gauge group with new $U(1)$ gauge symmetry
 
 </v-click>
-<v-after>
+
+<v-click>
 
 - The dark photon interacts with the SM photon via kinetic mixing.
 
-</v-after>
+</v-click>
 
 <Item v-after title="Extended Standard Model">
   <div className="flex justify-center items-center">
@@ -310,7 +311,7 @@ $$M_T = \sqrt{2 |\vec{p}_T^{vis}| |\vec{MET}| (1 - \cos(\Delta\phi))}$$
   flowchart LR
       A[Start] --> B[Create dataset\n500,000 data points]
       B --> C[Import dataset\ninto Pandas DataFrame]
-      C --> D[Split data\nTraining:Testing 4:1]
+      C --> D[Split data\nTraining:Testing]
       D --> E[Create initial population]
       E --> E1[Set number of estimators: 50-400]
       E --> E2[Set learning rate: 0.1-1]
