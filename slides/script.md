@@ -7,14 +7,14 @@ This is where the concept of a 'dark sector' comes in. Scientists have proposed 
 
 One of the key players in this proposed dark sector is the 'dark photon’, which operates similarly to the standard model photon.  The dark photon is theorized to interact with the SM photon via kinetic mixing, an effect where the dark photon and the standard photon can weakly interact with each other.
 
-The Standard Model is based on a specific set of gauge symmetries. To introduce the dark photon interactions to the standard model, physicists propose extending the Standard Model's gauge group by adding a new U(1) gauge symmetry, similar to the photon.
+To introduce the dark photon interactions to the standard model, we can extend the Standard Model's gauge group by adding a new U(1) gauge symmetry, similar to the photon.
 
 (indicate at slide)
 
 Slide 2:
 
-The Lagrangian tells us how the photon and the dark photon will interact through kinetic mixing. 
-Here is the Lagrangian:
+The Lagrangians tells us how the photon and the dark photon will interact through kinetic mixing and with currents. 
+Here are the Lagrangians:
 
 Let’s define a few things. The F term is the electromagnetic tensor which describes the photon field in spacetime.
 
@@ -24,11 +24,11 @@ The F’ term is similar to the electromagnetic tensor, but describes the dark p
 
 Epsilon is the kinetic mixing parameter. 
 
-In the lagrangian, the first term is the kinetic term for the electromagnetic field, which is a part of the standard model. The second term is the kinetic term for the dark photon field, which is an extension of the standard model.  This term tells us that the dark photon behaves in a way similar to the photon.
+In the first lagrangian, the first term is the kinetic term for the electromagnetic field, which is a part of the standard model. The second term is the kinetic term for the dark photon field, which is an extension of the standard model.  This term tells us that the dark photon behaves in a way similar to the photon.
 
-The third term is the kinetic mixing term. It connects the standard photon field with the dark photon field. The parameter $\epsilon$ determines the strength of this mixing. If $\epsilon$ is non-zero, even if it's very small, it allows for interaction between the two sectors.
+The third term is the kinetic mixing term. It connects the standard photon field with the dark photon field. The parameter $\epsilon$ determines the strength of this mixing. If $\epsilon$ is non-zero, even if it's very small, it allows for interaction between the two sectors
 
-The last term is a mass term for the dark photon. However, we treat it as massless in this case, as we are considering it as an analog to the photon. This term therefore cancels out as the mass is 0.
+The second Lagrangian describes the interaction between the respective fields and their currents. Right now, the dark photon can only interact with the dark current.
 
 
 Slide 3:
@@ -39,34 +39,11 @@ When we have mixing terms in our Lagrangian, it suggests that our original field
 
 Diagonalization is the mathematical process that helps us find the true, physical particles.
 
-Our goal is to remove the mixing term, so we want the cross-term f times f’ to vanish
+We can diagonalize the kinetic terms by rotating the fields like so:
 
-To achieve this, we perform a field redefinition. We're essentially changing our perspective, looking at the system in terms of new fields that we'll call A tilde and A prime tilde. 
+And after some (quite painful) math, we find that if the dark photon has mass, then the interaction Lagrangian contains the following term:
 
-The field redefinition needs to do two things: eliminate the mixing term and ensure our new fields are properly normalized (meaning they have the correct scale).
-
-Once we perform the calculations, we end up with two redefined fields. The new field A tilde is mostly the original photon field, but with a small part of the dark photon field
-
-The new dark photon field A prime tilde is a rescaled version of the original dark photon field.
-
-After this redefinition, our Lagrangian takes on a simpler form. 
-
-Slide 4:
-
-Now that we've diagonalized our kinetic terms, let's find out how the dark photon actually interacts with matter. 
-
-Let's start with something familiar: the interaction between a regular photon and a charged particle. We describe this interaction using what's called an interaction Lagrangian
-
-$A_\mu$ represents the photon field.
-$e$ is the electric charge, which determines the strength of the interaction.
-These three terms, the particle/antiparticle fields and the gamma matrices are equivalent to the fermion current, denoted by J.
-
-This equation tells us how photons interact with charged particles in QED. However, we redefined our photon field earlier. We can use that new definition to see how the dark photon enters the picture. After substitution:
-
-The first term is our familiar electromagnetic interaction.
-
-The second term is new. It shows that the dark photon  can interact with the electromagnetic current, just like a regular photon.
-
+This term connects the dark photon to the standard electromagnetic current.
 
 Slide 5:
 
@@ -103,9 +80,9 @@ Slide 8:
 
 I decided that simulating the data would be much easier as I could keep track of all particles produced in each event. I used Pythia 8.3, a C++ and Python library for particle simulations, to simulate proton-proton collisions at 14 TeV. This energy was chosen to match the energy of the Large Hadron Collider (LHC). To incorporate the dark photon hypothesis, I modified the simulation to include the decay channel I mentioned previously. I set the branching ratio for this decay to $10^{-6}$.
 
-In our simulation, I defined the dark photon as a stable, massless particle that is color neutral, chargeless, and has a spin of 1.
+In our simulation, I defined the dark photon as a stable particle that is color neutral, chargeless, and has a spin of 1 and a mass of 10 to the negative 20th eV. This was calculated to be the lower bound for the dark photon mass. 
 
-Now, let's discuss the key variables we calculated from our simulated data.
+Now, let's discuss the key variables from our simulated data.
 HT (Scalar sum of jet momenta): This is calculated by summing the total visible energy in the event. It gives us a measure of the overall energy scale of the collision.
 
 MET (Missing Transverse Energy): This is calculated by summing the energy produced by neutrinos and dark photons. These particles don't interact with our detectors, so their presence is inferred from an imbalance in the total momentum of the event.
@@ -153,3 +130,7 @@ I would like to thank:
 - Dr. Richard Oppenheim and Dr. Bruce Cortez (ex-AT&T Research) for their feedback and guidance for this project. When I started this project, I went in blind with no prior knowledge or experience with this specific subject matter, and Dr. Oppenheim and Dr. Cortez provided me with a way to get feedback as I developed the project more.
 I would also like to thank the University of Chicago and the organizers of the TeVPA conference for giving me an opportunity to share my research.
 Any questions?
+
+
+
+
