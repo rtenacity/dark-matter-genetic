@@ -3,7 +3,7 @@ theme: ./
 colorSchema: light
 author: Rohan Arni
 date: 2024/08/27
-transition: slide-left
+# transition: slide-left
 ---
 
 # Searching for Dark Photon Production Using Genetic Algorithms
